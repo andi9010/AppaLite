@@ -17,7 +17,7 @@ namespace AppaLiteModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Empleado()
         {
-            this.Movimiento = new HashSet<Movimiento>();
+            this.Movimientos = new HashSet<Movimiento>();
         }
     
         public int Id { get; set; }
@@ -27,6 +27,6 @@ namespace AppaLiteModel
         public string Foto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Movimiento> Movimiento { get; set; }
+        public virtual ICollection<Movimiento> Movimientos { get; set; }
     }
 }
