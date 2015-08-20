@@ -88,11 +88,10 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Estado" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Fecha" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Hora" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="PrestamoId" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
     <Property Name="EmpleadoMovimiento_Movimiento_Id" Type="int" Nullable="false" />
     <Property Name="Destino_Id" Type="int" Nullable="false" />
+    <Property Name="Prestamo_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="EmpleadoMovimiento">
     <End Role="Empleado" Type="AppaLiteModel.Store.Empleados" Multiplicity="1" />
@@ -162,7 +161,7 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Movimiento">
-        <PropertyRef Name="PrestamoId" />
+        <PropertyRef Name="Prestamo_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -248,7 +247,7 @@
           <Property Name="Cedula" Type="String" Nullable="false" />
           <Property Name="Telefono" Type="String" Nullable="false" />
           <Property Name="Foto" Type="String" Nullable="false" />
-          <NavigationProperty Name="Movimiento" Relationship="AppaLiteModel.EmpleadoMovimiento" FromRole="Empleado" ToRole="Movimiento" />
+          <NavigationProperty Name="Movimientos" Relationship="AppaLiteModel.EmpleadoMovimiento" FromRole="Empleado" ToRole="Movimiento" />
         </EntityType>
         <EntityType Name="Movimiento">
           <Key>
@@ -256,10 +255,10 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Estado" Type="String" Nullable="false" />
-          <Property Name="Fecha" Type="String" Nullable="false" />
-          <Property Name="Hora" Type="String" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="Destino" Relationship="AppaLiteModel.MovimientoLocal" FromRole="Movimiento" ToRole="Local" />
-          <Property Name="PrestamoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Prestamo" Relationship="AppaLiteModel.PrestamoMovimiento" FromRole="Movimiento" ToRole="Prestamo" />
+          <NavigationProperty Name="Empleado" Relationship="AppaLiteModel.EmpleadoMovimiento" FromRole="Movimiento" ToRole="Empleado" />
         </EntityType>
         <Association Name="EmpleadoMovimiento">
           <End Type="AppaLiteModel.Empleado" Role="Empleado" Multiplicity="1" />
@@ -284,14 +283,6 @@
         <Association Name="PrestamoMovimiento">
           <End Type="AppaLiteModel.Prestamo" Role="Prestamo" Multiplicity="1" />
           <End Type="AppaLiteModel.Movimiento" Role="Movimiento" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Prestamo">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Movimiento">
-              <PropertyRef Name="PrestamoId" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -352,8 +343,6 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-          <ScalarProperty Name="Hora" ColumnName="Hora" />
-          <ScalarProperty Name="PrestamoId" ColumnName="PrestamoId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -392,6 +381,14 @@
     <AssociationSetMapping Name="MovimientoLocal" TypeName="AppaLiteModel.MovimientoLocal" StoreEntitySet="Movimientos">
       <EndProperty Name="Local">
         <ScalarProperty Name="Id" ColumnName="Destino_Id" />
+      </EndProperty>
+      <EndProperty Name="Movimiento">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PrestamoMovimiento" TypeName="AppaLiteModel.PrestamoMovimiento" StoreEntitySet="Movimientos">
+      <EndProperty Name="Prestamo">
+        <ScalarProperty Name="Id" ColumnName="Prestamo_Id" />
       </EndProperty>
       <EndProperty Name="Movimiento">
         <ScalarProperty Name="Id" ColumnName="Id" />
