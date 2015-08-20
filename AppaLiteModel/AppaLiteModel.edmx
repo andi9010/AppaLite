@@ -247,7 +247,7 @@
           <Property Name="Cedula" Type="String" Nullable="false" />
           <Property Name="Telefono" Type="String" Nullable="false" />
           <Property Name="Foto" Type="String" Nullable="false" />
-          <NavigationProperty Name="Movimiento" Relationship="AppaLiteModel.EmpleadoMovimiento" FromRole="Empleado" ToRole="Movimiento" />
+          <NavigationProperty Name="Movimientos" Relationship="AppaLiteModel.EmpleadoMovimiento" FromRole="Empleado" ToRole="Movimiento" />
         </EntityType>
         <EntityType Name="Movimiento">
           <Key>
@@ -258,6 +258,7 @@
           <Property Name="Fecha" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="Destino" Relationship="AppaLiteModel.MovimientoLocal" FromRole="Movimiento" ToRole="Local" />
           <NavigationProperty Name="Prestamo" Relationship="AppaLiteModel.PrestamoMovimiento" FromRole="Movimiento" ToRole="Prestamo" />
+          <NavigationProperty Name="Empleado" Relationship="AppaLiteModel.EmpleadoMovimiento" FromRole="Movimiento" ToRole="Empleado" />
         </EntityType>
         <Association Name="EmpleadoMovimiento">
           <End Type="AppaLiteModel.Empleado" Role="Empleado" Multiplicity="1" />

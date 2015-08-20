@@ -20,5 +20,6 @@ namespace AppaLiteModel
     
         public virtual Local Destino { get; set; }
         public virtual Prestamo Prestamo { get; set; }
+        public virtual Empleado Empleado { get; set; }
     }
 }

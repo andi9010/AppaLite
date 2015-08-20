@@ -206,34 +206,80 @@ class PruebaAppaLiteModel
         */
 
 
+        /*
 
 
 
-        
         foreach (Prestamo reporte in context.Prestamos.AsEnumerable())
         {
-                      
- 
-            if ( reporte.Movimiento.Count() != 0 )
+
+
+            if (reporte.Movimiento.Count() != 0)
             {
                 var s = (from t in reporte.Movimiento
-                            // where t.Estado.Contains("restad")
-                             orderby t.Fecha descending
+                             // where t.Estado.Contains("restad")
+                         orderby t.Fecha descending
 
-                             select t).First();
+                         select t).First();
                 if (s.Estado.Contains("restad"))
-                    {
+                {
 
 
                     Console.WriteLine("{0}{1}\t{2} {3}", reporte.Articulo.Descripcion, reporte.Origen.Nombre, s.Estado, s.Fecha);
-                   }
-                
+                }
+
             }
-            
+            */
+        //prestamo por local 
 
-            
+        /* foreach (Prestamo rep in context.Prestamos.AsEnumerable())
+         {
 
+
+             if (rep.Movimiento.Count() != 0)
+             {
+                 var s = (from t in rep.Movimiento
+
+                          orderby t.Fecha descending 
+
+                          select t).First();
+
+
+                 if (s.Estado.Contains("restad"))
+                 {
+
+                 //Console.WriteLine("Local origen " + " fecha " +  "Estado " +  + "Destino " + " Nombre Empleado");
+                 Console.WriteLine("{0}{1,6}{2} {3} {4 }{5}", rep.Origen.Nombre , s.Fecha , rep.Articulo.Descripcion ,  s.Estado ,   s.Empleado.Nombre ,  s.Destino.Nombre );
+                 }
+
+             }
+
+
+
+         }*/
+
+
+        foreach (Prestamo rep in context.Prestamos.AsEnumerable())
+        {
+            if (rep.Movimiento.Count() != 0)
+            {
+                var s = from t in rep.Movimiento
+                        orderby t.Fecha descending
+                        select t;
+
+
+
+                
+               
+
+
+
+
+
+            }
         }
+
+      }
     }
-}
+
 
