@@ -1,9 +1,36 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="AppaLite">
 <head>
-    <title>hola</title>
+
+    <title>AppaLite</title>
+
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, width=device-width, height=device-height ">
+
+    <link href="bower_components/animate.css/animate.css" rel="stylesheet" />
+    <link href="bower_components/angular-material/angular-material.css" rel="stylesheet" />
+    <link href="css/interfazRegistro.css" rel="stylesheet" />
+    <link href="css/animacion_interfazRegistro.css" rel="stylesheet" />
+    
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="js/tamañoPantalla.js"></script>
+
 </head>
-<body>
-    hola mundo
+
+<body ng-app="AppaLite" style="background-color:rgba(191, 187, 187, 0.58);" >
+    <!-- NAVIGATION -->
+
+    <a ui-sref="registroPrestamo" >Presioname !!!!</a>
+    <a ui-sref="about">About</a>
+
+
+    <div ui-view onclick="setTop()"> </div>
+
 </body>
 </html>

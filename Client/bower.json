@@ -14,8 +14,11 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.4.3",
-    "angular-material": "~0.10.0"
-
+    "angular": "~1.4.5",
+    "angular-material": "~0.10.0",
+    "angular-scroll": "~0.7.1",
+    "angular-touch": "~1.4.5",
+    "angular-ui-router": "~0.2.15",
+    "animate.css": "~3.4.0"
   }
 }

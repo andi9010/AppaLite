@@ -1,0 +1,206 @@
+
+
+md-input-container.md-default-theme label
+        
+{
+    color:#333C4E; /*color de los campos*/
+            
+}
+
+md-input-container.md-default-theme input[disabled] {
+    color : #333C4E;            
+    background-color: transparent;
+    text-align:center;
+}
+
+.imagen {
+    height: 50px;
+    width: 50px;
+            
+    background:#8f8ec4;
+}
+
+.divider {
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    margin: 0 5px 0 5px;
+}
+
+.dividerAlert {
+    border-radius: 30px;
+    border: 1px solid #fa5151;
+    margin: 0 5px 0 5px;
+}
+
+
+.md-icon-button {
+    width: 80px;
+    height: 80px;
+    color: #2D344E;
+}
+
+.iconoTalla {
+    
+    fill: #2D344E;
+    width: 90%;
+    height: 90%;
+   
+}
+
+
+#blockLeft {
+    background: white;
+    border-radius: 25px;
+    padding: 0;
+}
+
+#blockRight {
+    background: white;
+    border-radius: 25px;
+    padding: 0;
+}
+
+#blockContent{
+    background: white;
+    border-radius: 0 0 25px 25px;
+    padding: 0;
+}
+
+.titleBlock {
+    border-radius: 25px 25px 0 0;
+}
+
+#blockmain {
+    background: #d5d5d5;
+}
+
+#escuarelocal, #escuarePerson {
+            
+    width: 200px;
+    height: 200px;
+    text-align: center;
+}
+
+.box-prestamoItem {
+    margin: 10px 0 0 0;
+    padding: 8px;
+    background-color: rgba(128, 128, 128, 0.21);
+            
+}
+
+.contentList {
+    font-size: small;
+    padding: 0 0 5px 15px;
+}
+
+.md-button.md-fab #hom {
+  line-height: 5.6rem;
+  min-width: 0;
+  width: 5.6rem;
+  height: 5.6rem;
+  border-radius: 50%;
+  border-color:red;
+  color:red;
+}
+
+
+
+.gridListdemoBasicUsage md-grid-list {
+  margin: 8px; }
+.gridListdemoBasicUsage .gray {
+  background: #f5f5f5; }
+.gridListdemoBasicUsage .green {
+  background: #b9f6ca; }
+.gridListdemoBasicUsage .yellow {
+  background: #ffff8d; }
+.gridListdemoBasicUsage .blue {
+  background: #84ffff; }
+.gridListdemoBasicUsage .purple {
+  background: #b388ff; }
+.gridListdemoBasicUsage .red {
+  background: #ff8a80; }
+.gridListdemoBasicUsage md-grid-tile {
+  transition: all 400ms ease-out 50ms; }
+
+.btn1 {
+  color : rgb(255, 255, 255);
+  font-weight:bold;
+  background-color: #2D344E;
+  border-radius: 8%;
+  font-size: 16px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.42);
+}
+.btn1:not([disabled]):hover {
+  background-color: #6a6fc1;
+  color: white;
+}
+/*
+.btn1[disabled] {
+  color : rgb(187, 187, 187);
+  background-color: rgba(230, 230, 229, 0.96);
+}*/
+
+.btn2 {
+  color : rgb(255, 255, 255);
+  font-weight:bold;
+  background-color: #6a6fc1;
+  border-radius: 8%;
+  font-size: 16px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.42);
+}
+
+.btn2:not([disabled]):hover {
+  background-color:  #6a6fc1;
+  color: white;
+}
+
+.bt{
+color:#ffebee;
+color:#ffcdd2;
+color:#ef9a9a;
+color:#FF7335;
+color:#ef5350;
+color:#148d75;
+color:#e53935;
+color:#6a6fc1;
+color:#FF7335;
+color:#b71c1c;
+color:#ff8a80;
+color:#ff5252;
+color:#ff1744;
+color:#1bbe9e;
+                }
+
+
+
+.chp {
+  position: relative;
+  width:70px;   
+}
+.chp .vegetablechip {
+    position: absolute;
+    right: 4px;
+    top: 4px;}
+
+.vegetablechip {
+      position: relative;
+      height: 24px;
+      width: 24px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 50%;
+      border: none; 
+      box-shadow: none;
+      padding: 0;
+      margin: 0;
+      transition: background 0.15s linear;
+      display:block; }
+.vegetablechip md-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0) scale(0.7);
+        color: white;
+        fill: white; }
+.vegetablechip:hover, .vegetablechip:focus {
+        background: rgba(255, 0, 0, 0.8); }

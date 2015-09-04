@@ -1,0 +1,184 @@
+<div layout="row" layout-sm="column" layout-md="column" layout-lg="column" layout-gt-lg="row" layout-fill layout-margin
+     ng-controller="BasicDemoCtrl as ctrl">
+    <div flex class="md-whiteframe-z1" id="blockLeft">
+
+        <md-toolbar class="md-primary titleBlock">
+            <div class="md-toolbar-tools">
+                <h2 class="md-flex">Registro de Pedidos</h2>
+            </div>
+        </md-toolbar>
+
+        <form name="form" novalidate>
+            <div style="padding:0 5px 5px 5px;">
+
+                <div flex layout="row" layout-sm="column" layout-md="column" layout-fill>
+
+                    <div flex style="padding:5px 0 0 0">
+
+
+                        <md-input-container class="md-icon-float">
+                            <label>Referencia</label>
+                            <md-icon md-svg-src="recursos/ref.svg"></md-icon>
+                            <input required ng-model="ctrl.nuevoPrestamo.referencia" name="referencia" type="text">
+                            <div ng-messages ng-show="form.referencia.$invalid">
+                                <div ng-message ng-show="form.referencia.$dirty">Complete este campo.</div>
+                            </div>
+                        </md-input-container>
+
+
+                    </div>
+
+                    <div flex="50" flex-sm="99" flex-md="99" layout="row" layout-align-gt-md="center center"
+                         layout-align-sm="start center" layout-align-md="start center" layout-sm="row" layout-md="row">
+                        <div><md-icon md-svg-icon="{{ctrl.nuevoPrestamo.marca.logo||'recursos/shop.svg'}}"></md-icon></div>
+                        <div>
+                            <md-select placeholder="Marca" name="marca" ng-model="ctrl.nuevoPrestamo.marca" required>
+                                <md-option ng-repeat="marca in ctrl.listaMarcas" ng-value="marca">
+                                    <md-icon md-svg-src="{{marca.logo}}" class="xx"></md-icon>
+                                    {{marca.nombre}}
+                                </md-option>
+                            </md-select>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div flex>
+                    <md-input-container class="md-icon-float">
+                        <label>Descripcion</label>
+                        <md-icon md-svg-src="recursos/shoe.svg"></md-icon>
+                        <input required name="descripcion" ng-model="ctrl.nuevoPrestamo.descripcion" type="text">
+                        <div ng-messages ng-show="form.descripcion.$invalid">
+                            <div ng-message ng-show="form.descripcion.$dirty">Complete este campo.</div>
+                        </div>
+                    </md-input-container>
+
+                </div>
+
+                <div flex>                   
+                    <md-input-container class="md-icon-float" ng-click="ctrl.showAdvanced($event)">
+                        <label>Talla</label>
+                        <md-icon md-svg-src="recursos/brand.svg" class="xx"></md-icon>
+                        <input required name="talla" type="text" ng-model="ctrl.nuevoPrestamo.talla" >
+                        <div ng-messages ng-show="form.talla.$invalid">
+                            <div ng-message ng-show="form.talla.$dirty">Complete este campo.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+
+                <div layout="row" layout-align="space-around center" layout-sm="column">
+                    <div id="escuarelocal">
+                        <md-menu>
+                            <md-button ng-click="ctrl.openMenu($mdOpenMenu, $event)">
+                                <md-icon class="md-icon-button" md-svg-icon="{{ctrl.localSeleccionado.icono||'recursos/shop.svg'}}"></md-icon>
+                            </md-button>
+                            <md-menu-content width="4">
+                                <md-menu-item ng-repeat="local in ctrl.listaLocales">
+                                    <md-button ng-click="ctrl.ponerLocal(local)">
+                                        <md-icon md-svg-icon="{{local.icono}}" md-menu-align-target></md-icon>
+                                        {{local.nombre}}
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-divider style=" height:2px;"></md-menu-divider>
+                            </md-menu-content>
+                        </md-menu>
+
+                        <md-input-container>
+                            <label>Local</label>
+                            <input required="!Local" name="local" ng-model="ctrl.localSeleccionado.nombre" type="text" disabled />
+                        </md-input-container>
+                    </div>
+
+                    <div id="escuarePerson">
+                        <md-menu>
+                            <md-button ng-click="ctrl.openMenu($mdOpenMenu, $event)">
+                                <md-icon class="md-icon-button"
+                                         md-svg-icon="{{ctrl.personaSeleccionado.foto||'recursos/delete.svg'}}"></md-icon>
+                            </md-button>
+
+                            <md-menu-content width="4" required>
+                                <md-menu-item ng-repeat="persona in ctrl.listaPersonas">
+                                    <md-button ng-click="ctrl.ponerPersona(persona)">
+                                        <md-icon md-svg-icon="{{persona.foto}}" md-menu-align-target></md-icon>
+                                        {{persona.nombre}}
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-divider style=" height:2px;"></md-menu-divider>
+                            </md-menu-content>
+                        </md-menu>
+
+                        <md-input-container>
+                            <label>Persona</label>
+                            <input required="!Persona" name="persona" ng-model="ctrl.personaSeleccionado.nombre" type="text" disabled>
+                        </md-input-container>
+                    </div>
+
+                </div>
+
+                <md-divider class="divider"></md-divider>
+                <div layout="row" layout-align="space-between center">
+
+                    <div>
+                        <md-button ng-disabled="form.$invalid" class="md-raised md-primary"
+                                   ng-click="ctrl.registrarItem();ctrl.hidden=true;ctrl.limpiarCampos(form)">Registrar Pedido</md-button>
+                    </div>
+                    <div>
+                        <md-button class="md-raised md-warn" ng-click="ctrl.limpiarCampos(form)">Limpiar</md-button>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </form>
+
+
+
+    </div>
+    <div flex-gt-lg="33" flex-sm="100" flex-md="100" id="blockRight" class="md-whiteframe-z1">
+        <md-toolbar class="md-primary titleBlock">
+            <div class="md-toolbar-tools">
+                <h2 class="md-flex">Lista de Pedidos</h2>
+            </div>
+        </md-toolbar>
+
+        <md-content layout-padding style="border-radius:0 0 25px 25px;">
+            <md-list>
+                <div id="lista" onscroll="setTop(600);" style="height:50px; overflow:auto;">
+                    <md-list-item class="box-prestamoItem md-whiteframe-z2 pruebaAnime" ng-repeat="registro in ctrl.listaRegistros"
+                                  md-swipe-right="ctrl.onSwipeRight($index)">
+                        <div layout="column" layout-fill>
+                            {{registro.fecha}}
+                            <div layout="row" layout-fill>
+                                <div layout="row" style="padding: 10px 0 0 0;" layout-fill>
+                                    <img ng-src="{{registro.foto||'recursos/delete.svg'}}" class="imagen" style="background:#1db295;" />
+                                    <div class="contentList">
+                                        {{registro.referencia}}<br />
+                                        {{registro.descripcion}}<br />
+                                        {{registro.talla}}<br />
+                                        {{registro.destino}}
+                                    </div>
+                                </div>
+                                <div layout="row" layout-align="end end">
+                                    <md-button class="md-fab md-mini md-warn" ng-click="ctrl.eliminarItem($index)">
+                                        <md-icon md-svg-src="recursos/delete.svg"></md-icon>
+                                    </md-button>
+                                </div>
+                            </div>
+                        </div>
+                    </md-list-item>
+                </div>
+            </md-list>
+            <md-divider class="divider"></md-divider>
+            <div layout="row" layout-align="space-between center" ng-show="ctrl.listaRegistros.length>0">
+                <div>
+                    <md-button class="md-raised md-primary" ng-click="ctrl.showAdvanced($event)">Aceptar</md-button>
+                </div>
+                <div>
+                    <md-button class="md-raised md-warn" ng-click="ctrl.showConfirm($event)">Cancelar</md-button>
+                </div>
+            </div>
+        </md-content>
+    </div>
+</div>

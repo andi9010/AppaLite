@@ -1,0 +1,84 @@
+﻿
+<md-dialog aria-label="Talla">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>TALLA</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="recursos/delete.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div layout="row">
+                <div layout="column" ng-init="ban=true;banTip=true;">
+                    <md-button class="md-fab  md-primary iconoTalla"
+                               ng-click="valTalla ='' ;listTalla.length=0;ban =!ban; mostrarChips=false; banMostrar=false">
+                        <md-icon md-svg-src="recursos/camiseta.svg" class="iconoTalla" ng-show="ban"></md-icon>
+                        <md-icon md-svg-src="recursos/shoe.svg" class="iconoTalla" ng-show="!ban"></md-icon>
+                    </md-button>
+
+
+                    
+                    <md-chips style="max-width:200px;" ng-show="mostrarChips">
+                        <md-chip ng-repeat="talla in listTalla" class="chp">
+                            {{talla.cadena}}
+                            <button class="vegetablechip" ng-click="eliminarTalla($index)">
+                                <md-icon md-svg-icon="md-close"></md-icon>
+                            </button>
+                        </md-chip>
+                    </md-chips>
+                    
+                </div>
+                <div layout="column">
+                    <div ng-show="!ban">
+                        <md-button class="btn1" ng-click="putTalla('Xl'); mostrarChips=true;">Xl</md-button>
+                        <md-button class="btn1" ng-click="putTalla('L');  mostrarChips=true;">L</md-button>
+                        <md-button class="btn1" ng-click="putTalla('M');  mostrarChips=true;">M</md-button>
+                        <md-button class="btn1" ng-click="putTalla('S');  mostrarChips=true;">S</md-button>
+                        <md-button class="btn1" ng-click="putTalla('Xs'); mostrarChips=true;">Xs</md-button>
+                        <md-button class="btn1" ng-click="putTalla('2Xs');mostrarChips=true;">2Xs</md-button>
+                        <md-button class="btn1" ng-click="putTalla('4T'); mostrarChips=true;">4T</md-button>
+                        <md-button class="btn1" ng-click="putTalla('3T'); mostrarChips=true;">3T</md-button>
+                        <md-button class="btn1" ng-click="putTalla('2T'); mostrarChips=true;">2T</md-button>
+                        <md-button class="btn1" ng-click="putTalla('24m'); mostrarChips=true;">24m</md-button>
+                        <md-button class="btn1" ng-click="putTalla('18m'); mostrarChips=true;">18m</md-button>
+                        <md-button class="btn1" ng-click="putTalla('12m'); mostrarChips=true;">12m</md-button>
+                        <md-button class="btn1" ng-click="putTalla('OFS'); mostrarChips=true;">OFS</md-button>
+                    </div>
+                    <div ng-show="ban">
+                        <md-button class="btn1" ng-click="banTip = true" ng-class="banTip ? 'btn2':'btn1'">US</md-button>
+                        <md-button class="btn1" ng-click="banTip = false" ng-class="banTip ? 'btn1':'btn2'">EUR</md-button>
+                    </div>
+                   
+                        <div>
+                            <md-input-container ng-show="ban">
+                                <label>Talla</label>
+                                <input ng-model="valTalla" type="number" min="1" max="50" name="talla">
+                            </md-input-container>
+                        </div>
+                        <div>
+                            <md-button class="btn1" ng-show="ban" 
+                                       ng-click="putTallaNumerica(valTalla);">Otro</md-button>
+                        </div>
+                    
+                    <div>
+                        <md-button class="btn1" ng-show="banMostrar" ng-click="borrarTodo();valTalla='';">Borrar Todo</md-button>
+                    </div>
+
+                </div>
+            </div>
+
+        </md-dialog-content>
+        <div class="md-actions" layout="row">
+            <span flex></span>
+            <md-button class="md-raised md-warn" ng-click="cancel()">
+                Cancelar
+            </md-button>
+            <md-button class="md-raised md-primary" ng-click="answer(valTalla)" style="margin-right:20px;">
+                Aceptar
+            </md-button>
+        </div>
+    </form>
+</md-dialog>
