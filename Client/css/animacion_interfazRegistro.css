@@ -1,0 +1,48 @@
+
+    .animatio {
+        -webkit-transition: 1s cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+        -moz-transition: 1s cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+        -ms-transition: 1s cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+        -o-transition: 1s cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+        transition: 1s cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+        position: relative;
+    }
+
+    .animatio.ng-leave.ng-leave-active,
+    .animatio.ng-enter {
+        -webkit-transform: rotateX(90deg) rotateZ(90deg);
+        -moz-transform: rotateX(90deg) rotateZ(90deg);
+        -ms-transform: rotateX(90deg) rotateZ(90deg);
+        -o-transform: rotateX(90deg) rotateZ(90deg);
+        transform: rotateX(90deg) rotateZ(90deg);
+        opacity: 0;
+        height: 60px;
+    }
+
+    .animatio.ng-enter.ng-enter-active,
+    .animatio.ng-leave {
+        -webkit-transform: rotateX(0deg) rotateZ(0deg);
+        -moz-transform: rotateX(0deg) rotateZ(0deg);
+        -ms-transform: rotateX(0deg) rotateZ(0deg);
+        -o-transform: rotateX(0deg) rotateZ(0deg);
+        transform: rotateX(0deg) rotateZ(0deg);
+        opacity: 1;
+        height: 60px;
+    }
+
+   
+
+
+    .pruebaAnime.ng-enter.ng-enter-active,
+    .pruebaAnime.ng-enter {
+        animation:0.6s bounceInLeft linear;
+        -webkit-animation:0.6s bounceInLeft linear;
+    }
+
+    .pruebaAnime.ng-leave.ng-leave-active,
+    .pruebaAnime.ng-leave {
+        animation:0.6s bounceOutRight linear;
+        -webkit-animation:0.6s bounceOutRight linear;
+    }
+
+
